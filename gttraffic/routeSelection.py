@@ -31,13 +31,6 @@ class RouteSelection:
 		vehicles_order = [self.vehicle_preferred_order[each[0][0][1]] for each in first_temp_combination]
 		vehicle_sel = vehicles_order.index(min(vehicles_order))
 		return combinations_best[vehicle_sel]
-	def get_route_time():
-		route_vehicle = route_vehicle_combinations[idx][0]
-		end_points = route_vehicle_combinations[idx][1]
-		route_time = 0
-		for orbit,vehicle in route_vehicle:
-			orbit_time,orbit_vehicle_travel_times = orbit_dict[orbit].get_travel_time(cityTraffic.vehicle_dict[vehicle],orbit_vehicle_travel_times)
-			route_time = route_time + orbit_time		
 	def evaluate_best_route(self,cityTraffic,point_start,points_to_visit):	
 		# Evaluate best route by taking the vehicles allowed based on weather condition. Gets all routes from
 		# Orbit map class. Then creates possible vehicle combinations.
